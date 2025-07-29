@@ -3,6 +3,8 @@ This Python script converts DXF polylines (airfoil profiles) into Selig (.dat) o
 
 How to Use This Script
 
+before anything , use cad softwares like autocad that allows you to use polylines , then using polyline draw an airfoil , then export that sketch as a dexf file 
+
 1. Prerequisites
 Install Python (3.6+)
 Install the ezdxf library:
