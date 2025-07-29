@@ -1,0 +1,51 @@
+# DXF-TO-DAT
+This Python script converts DXF polylines (airfoil profiles) into Selig (.dat) or Lednicer (.dat) formats, which are widely used in aerodynamic analysis tools like XFOIL, XFLR5, and OpenVSP.
+
+How to Use This Script
+
+1. Prerequisites
+Install Python (3.6+)
+Install the ezdxf library:
+
+2. Running the Script
+Paste the file location of the DXF file or Drag & drop your DXF file when prompted.
+Enter the desired output filename (e.g., naca2412.dat).
+Choose Selig (XFOIL) or Lednicer (XFLR5) format.
+
+thats it ! now you have a .dat file of the airfoil 
+
+Key Features of the DXF-to-Airfoil Converter
+1️⃣ Automatic Scaling & Normalization
+Chord Length = 1: Normalizes the airfoil to a unit chord for compatibility with CFD tools (XFOIL/XFLR5).
+
+Leading Edge at (0,0): Translates the nose to the origin while preserving the airfoil’s true shape.
+
+Trailing Edge Preservation: Maintains the actual TE y-coordinate (no forced y=0), avoiding artificial straight lines.
+
+2️⃣ Dual Output Formats
+Selig (.dat): Single continuous point loop (TE→Upper→LE→Lower→TE) for XFOIL.
+
+Lednicer (.dat): Separate upper/lower surfaces with headers for XFLR5.
+
+3️⃣ User-Friendly & Interactive
+Drag-and-Drop Input: Just paste your DXF file path or drag the file into the terminal.
+
+Format Selection: Choose between Selig (S) or Lednicer (L) formats during runtime.
+
+Error Handling: Validates DXF structure and provides clear error messages.
+
+4️⃣ Robust Geometry Processing
+Handles both closed polylines (single loop) and split upper/lower surfaces.
+
+Automatically detects and sorts points:
+
+Upper surface: TE → LE (descending X)
+
+Lower surface: LE → TE (ascending X)
+
+Preserves true trailing edge coordinates (even if TE is above/below the x-axis).
+
+5️⃣ Engineering-Ready Output
+Precision formatting (6 decimal places) for accurate CFD analysis.
+
+Console feedback with LE/TE coordinates and point counts.
